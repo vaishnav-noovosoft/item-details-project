@@ -77,9 +77,11 @@ export class AppComponent implements OnInit {
     console.log("reset");
     this.items = Item.items.map(item => item.clone());
     console.log(this.items[0]);
-    this.currentItem = Object.assign({}, this.items[0]);
-    // this.currentItem = {...this.items[0]};
-    this.item = this.currentItem;
+    this.currentItem = this.items[0];
+
+    // Before
+    // this.item = this.currentItem
+    this.item = Object.assign({}, this.currentItem); // Now
   }
 
   resetList() {
