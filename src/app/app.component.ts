@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
   currentStyles: Record<string, string> = {};
 
   ngOnInit() {
+    console.log('ng on it')
     this.resetItems();
     this.setCurrentClasses();
     this.setCurrentStyles();
@@ -73,34 +74,45 @@ export class AppComponent implements OnInit {
   }
 
   resetItems() {
+    console.log("reset");
     this.items = Item.items.map(item => item.clone());
-    this.currentItem = this.items[0];
+    console.log(this.items[0]);
+    this.currentItem = Object.assign({}, this.items[0]);
+    // this.currentItem = {...this.items[0]};
     this.item = this.currentItem;
   }
 
   resetList() {
+    console.log('reset list');
     this.resetItems();
     this.itemsWithTrackByCountReset = 0;
     this.itemsNoTrackByCount = ++this.itemsNoTrackByCount;
   }
 
   changeIds() {
-
-    this.items.forEach(i => i.id += 1 * this.itemIdIncrement);
+    console.log('change ids')
+    this.items.forEach(i => i.id += this.itemIdIncrement);
     this.itemsWithTrackByCountReset = -1;
     this.itemsNoTrackByCount = ++this.itemsNoTrackByCount;
     this.itemsWithTrackByCount = ++this.itemsWithTrackByCount;
   }
 
   clearTrackByCounts() {
+    console.log('track by counts')
     this.resetItems();
     this.itemsNoTrackByCount = 0;
     this.itemsWithTrackByCount = 0;
     this.itemIdIncrement = 1;
   }
-  trackByItems(index: number, item: Item): number { return item.id; }
+  trackByItems(index: number, item: Item): number {
+    console.log('track by items')
+    return item.id;
+  }
 
-  trackById(index: number, item: any): number { return item.id; }
+  trackById(index: number, item: any): number {
+    console.log('track by id')
+    return item.id;
+  }
 
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;

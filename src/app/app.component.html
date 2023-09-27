@@ -29,7 +29,7 @@
 
   <p>
     <label for="duplicate">Duplicate two way binding</label>
-    <input type="text" [(ngModel)]="currentItem.name" />
+    <input id="duplicate" type="text" [(ngModel)]="currentItem.name" />
   </p>
 </fieldset>
 
@@ -115,7 +115,7 @@
 <div [class.hidden]="isSpecial">Hide with class</div>
 
 <p>ItemDetail is in the DOM but hidden</p>
-<app-item-detail [class.hidden]="isSpecial"></app-item-detail>
+<app-item-detail [item]="item"></app-item-detail>
 
 <div [style.display]="isSpecial ? 'block' : 'none'">Show with style</div>
 <div [style.display]="isSpecial ? 'none'  : 'block'">Hide with style</div>
@@ -197,7 +197,9 @@
 <p>Pick your favorite item</p>
 <div>
   <label for="item-{{i}}" *ngFor="let i of items">
-    <div><input id="item-{{i}}"type="radio" name="items" [(ngModel)]="currentItem" [value]="i">{{i.name}}
+    <div>
+      <input id="item-{{i}}" type="radio" name="items" [(ngModel)]="currentItem" [value]="i">
+      {{i.name}}
     </div>
   </label>
 </div>

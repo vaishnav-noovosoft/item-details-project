@@ -2,11 +2,7 @@ export class Item {
   static nextId = 0;
 
   static items: Item[] = [
-    new Item(
-      0,
-      'Teapot',
-      'stout'
-    ),
+    new Item(0, 'Teapot', 'stout'),
     new Item(1, 'Lamp', 'bright'),
     new Item(2, 'Phone', 'slim' ),
     new Item(3, 'Television', 'vintage' ),
@@ -25,6 +21,7 @@ export class Item {
   }
 
   clone(): Item {
+    console.log(this);
     return Object.assign(new Item(this.id), this);
   }
 }
