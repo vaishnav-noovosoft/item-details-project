@@ -213,7 +213,9 @@
   <app-unknown-item  *ngSwitchDefault           [item]="currentItem"></app-unknown-item>
 </div>
 
-
+<div *ngFor="let item of items; let odd=odd" [class.odd]="odd">
+  <div *appUnless="odd">{{item.id}}</div>
+</div>
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.

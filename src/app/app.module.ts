@@ -6,13 +6,15 @@ import { FormsModule } from '@angular/forms'; // <--- JavaScript import from Ang
 import { AppComponent } from './app.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { ItemSwitchComponents } from './item-switch.component';
+import { UnlessDirective } from './unless.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemDetailComponent,
-    ItemSwitchComponents
+    ItemSwitchComponents,
+    UnlessDirective,
   ],
 
   imports: [
