@@ -57,7 +57,7 @@
                   {{ isSpecial ? "": "not"}} special after clicking "Refresh".</div>
 <br><br>
 <!-- toggle the "special" class on/off with a property -->
-<div [ngClass]="isSpecial ? 'special' : ''">This div is special</div>
+<div [ngClass]="isSpecial ? 'special' : ''">This div is {{ isSpecial ? '' : ' not ' }} special</div>
 <div class="helpful study course">Helpful study course</div>
 <div [ngClass]="{'helpful':false, 'study':true, 'course':true}">Study course</div>
 

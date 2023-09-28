@@ -36,7 +36,6 @@ export class AppComponent implements OnInit {
   currentStyles: Record<string, string> = {};
 
   ngOnInit() {
-    console.log('ng on it')
     this.resetItems();
     this.setCurrentClasses();
     this.setCurrentStyles();
@@ -50,6 +49,7 @@ export class AppComponent implements OnInit {
   setCurrentClasses() {
     // CSS classes: added/removed per current state of component properties
     this.currentClasses =  {
+
       saveable: this.canSave,
       modified: !this.isUnchanged,
       special:  this.isSpecial
@@ -74,9 +74,7 @@ export class AppComponent implements OnInit {
   }
 
   resetItems() {
-    console.log("reset");
     this.items = Item.items.map(item => item.clone());
-    console.log(this.items[0]);
     this.currentItem = this.items[0];
 
     // Before
@@ -85,14 +83,12 @@ export class AppComponent implements OnInit {
   }
 
   resetList() {
-    console.log('reset list');
     this.resetItems();
     this.itemsWithTrackByCountReset = 0;
     this.itemsNoTrackByCount = ++this.itemsNoTrackByCount;
   }
 
   changeIds() {
-    console.log('change ids')
     this.items.forEach(i => i.id += this.itemIdIncrement);
     this.itemsWithTrackByCountReset = -1;
     this.itemsNoTrackByCount = ++this.itemsNoTrackByCount;
@@ -100,19 +96,16 @@ export class AppComponent implements OnInit {
   }
 
   clearTrackByCounts() {
-    console.log('track by counts')
     this.resetItems();
     this.itemsNoTrackByCount = 0;
     this.itemsWithTrackByCount = 0;
     this.itemIdIncrement = 1;
   }
   trackByItems(index: number, item: Item): number {
-    console.log('track by items')
     return item.id;
   }
 
   trackById(index: number, item: any): number {
-    console.log('track by id')
     return item.id;
   }
 
